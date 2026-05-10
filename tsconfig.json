@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@img/*": [
+        "public/img/*"
+      ],
+      "@libs/*": [
+        "libs/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "components/SignUp/Tutor/7_SelectHighSchool.tsx",
+    "components/Tutor/myform/popup/SelectMBTIPopup.tsx",
+    "libs/client/SystemCodes/Common/LanguageSkill.tsx",
+    "next-env.d.ts",
+    "scripts/sitemap.mjs",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
