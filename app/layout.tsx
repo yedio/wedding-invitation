@@ -4,12 +4,12 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "진형 🤍 예주 결혼합니다",
-  description: "사랑스런 연지의 첫 돌잔치에 초대합니다.",
+  description: "진형 🤍 예주 결혼식에 초대합니다.",
   openGraph: {
     title: "진형 🤍 예주 결혼합니다",
     type: "website",
     siteName: "진형 🤍 예주 결혼합니다",
-    description: "사랑스런 연지의 첫 돌잔치에 초대합니다.",
+    description: "진형 🤍 예주 결혼식에 초대합니다.",
   },
 };
 

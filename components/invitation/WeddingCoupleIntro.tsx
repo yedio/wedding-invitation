@@ -17,18 +17,18 @@ export function WeddingCoupleIntro() {
           className="aspect-[4/2] w-full rounded-2xl object-cover shadow-sm"
           loading="lazy"
         />
-        <div className="mx-auto mt-8 inline-grid w-max max-w-full grid-cols-[auto_minmax(0,1fr)_auto] items-baseline gap-x-2 gap-y-3 text-15 font-medium leading-[26px] text-black">
+        <div className="mx-auto mt-8 inline-grid w-max max-w-full grid-cols-[auto_auto_auto] items-baseline gap-x-2 gap-y-3 text-15 font-medium leading-[26px] text-black">
           <span className="text-left whitespace-nowrap">
             {groomLine.parent1} · {groomLine.parent2}
           </span>
-          <span className="min-w-0 text-center font-normal text-[#999999]">
+          <span className="shrink-0 whitespace-nowrap text-center font-normal text-[#999999]">
             의 아들
           </span>
           <span className="text-right whitespace-nowrap">{groomLine.self}</span>
           <span className="text-left whitespace-nowrap">
             {brideLine.parent1} · {brideLine.parent2}
           </span>
-          <span className="min-w-0 text-center font-normal text-[#999999]">
+          <span className="shrink-0 whitespace-nowrap text-center font-normal text-[#999999]">
             의 딸
           </span>
           <span className="text-right whitespace-nowrap">{brideLine.self}</span>

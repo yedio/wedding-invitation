@@ -50,20 +50,19 @@ export const AccordionAccountSideLayout = ({
               key={`${row.role}-${row.accountNumber}`}
               className={index > 0 ? "mt-3 border-t border-[#ece8e8] pt-3" : ""}
             >
-              <div className="mb-1.5 text-center text-14 text-[#524548]">
+              <div className="mb-1.5 text-left text-14 text-[#524548]">
                 {row.role}
               </div>
-              <div className="flex items-start justify-between gap-2">
-                <div className="min-w-0 flex-1 text-15 leading-[22px] text-[#524548]">
-                  <div className="break-all">
-                    {row.bankName} | {row.accountNumber}
-                    {row.holderName ? ` (${row.holderName})` : ""}
-                  </div>
-                </div>
+              <div className="mb-1.5 flex flex-wrap items-center gap-2 text-left text-15 leading-[22px] text-[#524548]">
+                <span className="min-w-0 break-all">{row.accountNumber}</span>
                 <CopyButton
                   copyText={row.accountNumber}
                   successMessage="계좌번호를 복사하였습니다."
                 />
+              </div>
+              <div className="text-left text-15 leading-[22px] text-[#524548]">
+                {row.bankName}
+                {row.holderName ? ` | ${row.holderName}` : ""}
               </div>
             </div>
           ))}
@@ -109,18 +108,17 @@ export const AccordionAccountLayout = ({
         />
       </div>
       {isOpen && (
-        <div className="w-full flex  items-start bg-[#fffcfc] rounded-b-[8px] p-3 justify-between">
-          <div className="min-w-0 flex-1 text-[#524548] text-15 leading-[22px]">
-            <div className="break-all">
-              {bankName} | {account}
-              {accountHolder ? ` (${accountHolder})` : ""}
-            </div>
-          </div>
-          <div className="flex flex-col space-y-1 ">
+        <div className="flex w-full flex-col bg-[#fffcfc] rounded-b-[8px] p-3 text-left text-[#524548] text-15 leading-[22px]">
+          <div className="mb-1.5 flex flex-wrap items-center gap-2">
+            <span className="min-w-0 break-all">{account}</span>
             <CopyButton
               copyText={account}
               successMessage="계좌번호를 복사하였습니다."
             />
+          </div>
+          <div>
+            {bankName}
+            {accountHolder ? ` | ${accountHolder}` : ""}
           </div>
         </div>
       )}
