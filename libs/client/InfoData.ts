@@ -2,14 +2,7 @@ export const info = {
   coverHero: {
     particleVideoUrl: "https://theirmood.com/src/wdd/particle/light.mp4",
     /** 히어로 전체 배경(커플 사진 등) — object-cover */
-    backgroundImageUrl:
-      "https://images.theirmood.com/resources/46097/card/IhMIUxYKKt/vblMWugIH9.png?f=webp&w=1280",
-    cornerLabels: {
-      topLeft: "SIMPLY",
-      topRight: "MEANT",
-      bottomLeft: "TO BE",
-      bottomRight: "TOGETHER",
-    },
+    backgroundImageUrl: "/img/pictures/cover_1.jpg",
   },
   date: {
     /** 예식 일시 `YYYY.MM.DD` 또는 `YYYY.MM.DD HH:mm[:ss]` */
@@ -30,7 +23,7 @@ export const info = {
     },
   },
   weddingIntro: {
-    imageUrl: "/img/baby/zip/zip1.jpg",
+    imageUrl: "/img/pictures/invitation_1.jpg",
     groomLine: {
       parent1: "이인출",
       parent2: "김득진",
@@ -110,18 +103,6 @@ export const info = {
       ],
     },
   ],
-  image: {
-    cover: "/img/baby/cover.jpg",
-    content: "/img/baby/zip/zip1.jpg",
-    zip: [
-      "/img/baby/zip/zip1.jpg",
-      "/img/baby/zip/zip6.jpg",
-      "/img/baby/zip/zip2.jpg",
-      "/img/baby/zip/zip3.jpg",
-      "/img/baby/zip/zip4.jpg",
-      "/img/baby/zip/zip5.jpg",
-    ],
-  },
   text: {
     invitation: `오랜 만남 끝에 저희 두 사람이\n사랑의 결실을 이루어\n소중한 결혼식을 올리게 되었습니다.\n\n늘 서로를 배려하며\n지금 이 마음 그대로\n서로를 존중하고 아끼며 살겠습니다.\n\n저희의 시작을 알리는 이 날,\n편안한 마음으로 오셔서 기쁘게 축하해 주시면\n그 따뜻한 마음 잊지 않고 잘 살겠습니다.`,
   },

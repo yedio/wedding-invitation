@@ -14,7 +14,7 @@ export default function FooterLayout() {
         </div>
       </div>
       <div className="text-10 text-gray-500">
-        Copyright 2025.{" "}
+        Copyright 2026.{" "}
         <span className="text-grey-700 font-weight-700">FROM YEJU.</span> All
         rights reserved.
       </div>

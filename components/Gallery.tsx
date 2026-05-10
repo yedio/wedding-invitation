@@ -50,10 +50,13 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
         {images.map((image, index) => (
           <div
             key={index}
-            className="aspect-[2/3] overflow-hidden cursor-pointer"
+            className="aspect-[3/4] cursor-pointer overflow-hidden"
             onClick={() => openFullScreen(index)}
           >
-            <CommonImage src={image} />
+            <CommonImage
+              src={image}
+              providedStyle="h-full w-full !object-cover object-center"
+            />
           </div>
         ))}
       </div>
@@ -71,10 +74,13 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
           <div className="w-full max-w-[440px]">
             <Slider {...settings}>
               {images.map((image, index) => (
-                <div key={index} className="flex justify-center items-center">
+                <div
+                  key={index}
+                  className="box-border flex h-[calc(100dvh-5.5rem)] min-h-0 w-full items-center justify-center px-2"
+                >
                   <CommonImage
                     src={image}
-                    providedStyle="max-h-full object-contain"
+                    providedStyle="max-h-full max-w-full !object-contain object-center !shrink"
                   />
                 </div>
               ))}

@@ -14,8 +14,7 @@ export function WeddingCoupleIntro() {
       <div className="flex w-full flex-col items-center px-5 py-8">
         <img
           src={imageUrl}
-          alt=""
-          className="aspect-[4/5] w-full max-w-[300px] rounded-2xl object-cover shadow-sm"
+          className="aspect-[4/2] w-full rounded-2xl object-cover shadow-sm"
           loading="lazy"
         />
         <div className="mx-auto mt-8 inline-grid w-max max-w-full grid-cols-[auto_minmax(0,1fr)_auto] items-baseline gap-x-2 gap-y-3 text-15 font-medium leading-[26px] text-black">

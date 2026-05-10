@@ -9,13 +9,17 @@ import { GallaryContent } from "./content/GallaryContent";
 import { LocationContent } from "./content/LocationContent";
 import { AccountContent } from "./content/AccountContent";
 
-export default function ContentLayout() {
+export default function ContentLayout({
+  galleryImages,
+}: {
+  galleryImages: string[];
+}) {
   return (
     <div className="w-full flex flex-col items-center pb-10">
       {/* 초대합니다 */}
       <InvitationContent />
       {/* 갤러리 */}
-      <GallaryContent />
+      <GallaryContent images={galleryImages} />
       {/* 예식 안내 */}
       <WeddingDateContent />
       {/* 오시는 길 */}

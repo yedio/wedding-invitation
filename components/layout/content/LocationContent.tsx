@@ -33,13 +33,13 @@ export const LocationContent = () => {
             tmap: location.mapAddress.tmap,
           }}
         />
-        <div className="w-full flex flex-col items-center space-y-4 px-4">
+        <div className="flex w-full flex-col items-center space-y-4 px-6 sm:px-8">
           <WayToComeForm
             title="🚆 지하철 이용"
             lineItems={[
               {
                 color: LINE_8_COLOR,
-                text: "8호선 문정역 하차 3번 출구 도보 5분",
+                text: "8호선 문정역 3번 출구 도보 5분",
               },
             ]}
           />
@@ -51,12 +51,12 @@ export const LocationContent = () => {
                 text: "일반 : 30, 31, 32, 100, 119, 331",
               },
               {
-                color: BUS_COLORS.ganseon,
-                text: "간선 : 302, 303, 320, 333, 343, 345, 350, 360, 422, N13, N37",
-              },
-              {
                 color: BUS_COLORS.jiseon,
                 text: "지선 : 3322, 3420",
+              },
+              {
+                color: BUS_COLORS.ganseon,
+                text: "간선 : 302, 303, 320, 333, 343, 345, 350, 360, 422, N13, N37",
               },
               {
                 color: BUS_COLORS.gwangyeok,
@@ -64,7 +64,7 @@ export const LocationContent = () => {
               },
             ]}
             descriptions={[
-              "※문정법조단지·건영아파트 정류소에서 하차 후 도보 4분\n※대중교통 정책에 따라 일부 변동될 수 있습니다.",
+              "※문정법조단지·건영아파트 정류소에서 하차 후 도보 4분"
             ]}
           />
           <WayToComeForm
