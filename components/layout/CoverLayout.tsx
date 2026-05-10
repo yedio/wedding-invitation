@@ -16,7 +16,7 @@ function parseHeroDate(dateStr: string) {
   const [y, m, d] = part.split(".");
   return {
     day: String(Number(d)),
-    month: String(Number(m)),
+    month: String(Number(m)).padStart(2, "0"),
     yearShort: y.slice(-2),
   };
 }
