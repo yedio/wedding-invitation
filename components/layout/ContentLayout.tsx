@@ -48,9 +48,11 @@ export function WayToComeForm({
   img,
 }: WayToComeFormProps) {
   return (
-    <div className="w-full flex flex-col space-y-2">
-      <div className="text-gray-500 flex items-center gap-2">{title}</div>
-      <div className="flex flex-col space-y-2 text-15">
+    <div className="flex w-full flex-col gap-1">
+      <div className="w-full text-left text-15 font-medium leading-[26px] text-gray-600">
+        {title}
+      </div>
+      <div className="flex w-full flex-col space-y-2 pl-4 text-15 text-gray-700 sm:pl-5">
         {lineItems?.map((row, index) => (
           <div key={index} className="flex gap-2.5 text-15 leading-[27px]">
             <span
@@ -62,9 +64,7 @@ export function WayToComeForm({
           </div>
         ))}
         {descriptions.map((desc, index) => (
-          <div key={`d-${index}`} className="">
-            {LineBreaker(desc)}
-          </div>
+          <div key={`d-${index}`}>{LineBreaker(desc)}</div>
         ))}
       </div>
       {img && <CommonImage src={img} />}

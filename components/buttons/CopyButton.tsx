@@ -4,10 +4,12 @@ import { CopyToClipBoard } from "@libs/client/Utility";
 interface CopyButtonProps {
   copyText: string;
   successMessage?: string;
+  imgSize?: number;
 }
 
 export const CopyButton = ({
   copyText,
+  imgSize = 22,
   successMessage = "복사하였습니다.",
 }: CopyButtonProps) => {
   return (
@@ -19,8 +21,8 @@ export const CopyButton = ({
     >
       <CommonImage
         src="/img/icons/copy.svg"
-        width={22}
-        height={22}
+        width={imgSize}
+        height={imgSize}
         alt=""
       />
     </button>
