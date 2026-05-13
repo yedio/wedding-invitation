@@ -40,7 +40,7 @@ export function FormWithTitle({
       )}
     >
       {title && (
-        <div className="text-main-color text-17 font-weight-600">{title}</div>
+        <div className="text-main-color text-18 font-weight-600">{title}</div>
       )}
       {children}
     </div>

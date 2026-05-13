@@ -1,6 +1,6 @@
 export const info = {
   coverHero: {
-    particleVideoUrl: "https://theirmood.com/src/wdd/particle/light.mp4",
+    particleVideoUrl: "/img/particle/particle_flower_00.mp4",
     /** 히어로 전체 배경(커플 사진 등) — object-cover */
     backgroundImageUrl: "/img/pictures/cover_1.jpg",
   },
@@ -104,6 +104,6 @@ export const info = {
     },
   ],
   text: {
-    invitation: `오랜 만남 끝에 저희 두 사람이\n사랑의 결실을 이루어\n소중한 결혼식을 올리게 되었습니다.\n\n늘 서로를 배려하며\n지금 이 마음 그대로\n서로를 존중하고 아끼며 살겠습니다.\n\n저희의 시작을 알리는 이 날,\n편안한 마음으로 오셔서 기쁘게 축하해 주시면\n그 따뜻한 마음 잊지 않고 잘 살겠습니다.`,
+    invitation: `11번째 여름을 함께한 두 사람이\n이제는 평생의 모든 계절을 함께하려 합니다.\n\n반짝이는 9월의 햇살 아래,\n소중한 분들을 초대합니다.\n\n귀한 걸음 하시어\n축복해 주시면 감사하겠습니다.`,
   },
 };

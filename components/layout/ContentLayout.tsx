@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { CommonImage } from "@components/image/CommonImage";
 import { LineBreaker } from "@libs/client/Utility";
 import { FormWithTitle, Wrapper } from "./common/Layout";
+import { InfoContent } from "./content/InfoContent";
 import { WeddingDateContent } from "./content/WeddingDateContent";
 import { InvitationContent } from "./content/InvitationContent";
 import { GallaryContent } from "./content/GallaryContent";
@@ -16,6 +17,7 @@ export default function ContentLayout({
 }) {
   return (
     <div className="w-full flex flex-col items-center pb-10">
+      <InfoContent />
       {/* 초대합니다 */}
       <InvitationContent />
       {/* 갤러리 */}

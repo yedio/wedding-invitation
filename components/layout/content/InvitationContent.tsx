@@ -8,7 +8,7 @@ export const InvitationContent = () => {
 
   return (
     <Wrapper>
-      <FormWithTitle title={"소중한 분들을 초대합니다"}>
+      <FormWithTitle title={"💘"}>
         <div className="text-15 text-center leading-[24px]">
           {LineBreaker(text.invitation)}
         </div>

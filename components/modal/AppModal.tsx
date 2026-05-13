@@ -43,7 +43,7 @@ export function AppModal({ open, onClose, title, children }: AppModalProps) {
       aria-modal="true"
       aria-labelledby="app-modal-title"
     >
-      <header className="relative flex h-[54px] shrink-0 items-center justify-center border-b border-[#eee] px-4">
+      <header className="relative flex h-[54px] shrink-0 items-center justify-center  border-[#eee] px-4">
         <h2 id="app-modal-title" className="text-16 font-semibold text-black">
           {title}
         </h2>

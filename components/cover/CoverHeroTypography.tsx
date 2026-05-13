@@ -14,25 +14,25 @@ export function CoverHeroTypography({
   parallaxY,
 }: CoverHeroTypographyProps) {
   return (
-    <div className="relative min-h-[100svh] w-full">
+    <div className="absolute inset-0 min-h-0 w-full">
       <div
-        className="relative h-[100svh] w-full text-white"
+        className="absolute inset-0 flex items-center justify-center text-white"
         style={{
           transform: `translate3d(0, ${parallaxY}px, 0)`,
           willChange: "transform",
         }}
       >
         <div
-          className="absolute left-1/2 top-1/2 z-[2] flex -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center leading-[0.88]"
+          className="z-[2] flex flex-col items-center text-center leading-[0.88]"
           style={{ fontFamily: "var(--font-cover-date), serif" }}
         >
-          <span className="text-[clamp(3.25rem,11vh,5.25rem)] font-semibold">
+          <span className="text-[clamp(4rem,14vh,6.5rem)] font-semibold">
             {yearShort}
           </span>
           <span className="text-[clamp(2.4rem,8.5vh,4rem)] font-medium opacity-[0.96]">
             {month}
           </span>
-          <span className="text-[clamp(3.25rem,11vh,5.25rem)] font-semibold">
+          <span className="text-[clamp(4rem,14vh,6.5rem)] font-semibold">
             {day}
           </span>
         </div>

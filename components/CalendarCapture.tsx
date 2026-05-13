@@ -31,10 +31,13 @@ export const CalendarCapture = ({
           return false;
         }}
         tileClassName={({ date }) => {
-          // 일요일만 특별 스타일 적용
           const isSunday = date.getDay() === 0;
+          const isSeptember = date.getMonth() === 8;
+          const day = date.getDate();
+          const isSeptemberHoliday =
+            isSeptember && (day === 24 || day === 25 || day === 26);
 
-          if (isSunday || date.getDate() === 3) {
+          if (isSunday || isSeptemberHoliday) {
             return "holiday";
           }
           return "";

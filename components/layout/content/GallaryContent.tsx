@@ -8,7 +8,7 @@ export const GallaryContent = ({ images }: { images: string[] }) => {
 
   return (
     <Wrapper>
-      <FormWithTitle title={"소중한 순간들 📸"}>
+      <FormWithTitle title={"웨딩 갤러리"}>
         <div className="px-4 w-full">
           <Gallery images={images} />
         </div>
