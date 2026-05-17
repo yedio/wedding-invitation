@@ -9,7 +9,7 @@ import { createPortal } from "react-dom";
  * (rounded 없음, 세로 전체 h-[100dvh])
  */
 const MODAL_COLUMN_CLASS =
-  "app-modal-shell fixed inset-0 z-[99999] mx-auto flex h-[100dvh] w-full max-w-[440px] flex-col bg-white";
+  "app-modal-shell fixed inset-0 z-[99999] mx-auto flex h-[100dvh] w-full max-w-[440px] flex-col overflow-hidden bg-white overscroll-none";
 
 interface AppModalProps {
   open: boolean;
@@ -35,10 +35,36 @@ export function AppModal({
 
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+
+    const scrollY = window.scrollY;
+    const { body, documentElement: html } = document;
+    const prevBody = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+    const prevHtmlOverflow = html.style.overflow;
+
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = prev;
+      body.style.position = prevBody.position;
+      body.style.top = prevBody.top;
+      body.style.left = prevBody.left;
+      body.style.right = prevBody.right;
+      body.style.width = prevBody.width;
+      body.style.overflow = prevBody.overflow;
+      html.style.overflow = prevHtmlOverflow;
+      window.scrollTo(0, scrollY);
     };
   }, [open]);
 
@@ -79,7 +105,7 @@ export function AppModal({
       <div
         className={
           hideTitle
-            ? "relative min-h-0 flex-1"
+            ? "relative min-h-0 flex-1 overflow-hidden overscroll-none"
             : "min-h-0 flex-1 overflow-y-auto overscroll-contain"
         }
       >

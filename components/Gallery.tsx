@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { cls } from "@libs/client/Utility";
 import { CommonImage } from "./image/CommonImage";
 import { AppModal } from "@components/modal/AppModal";
@@ -14,6 +14,8 @@ const PREVIEW_LIMIT = 9;
 
 const ARROW_CLASS =
   "absolute top-1/2 z-10 flex h-12 w-10 -translate-y-1/2 items-center justify-center border-0 bg-transparent p-0 text-32 font-light leading-none text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.45)]";
+
+const SWIPE_THRESHOLD_PX = 48;
 
 export const Gallery = ({ images, providedStyle }: GalleryProps) => {
   const [open, setOpen] = useState(false);
@@ -30,15 +32,33 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
     setOpen(true);
   };
 
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
     if (count <= 1) return;
     setIndex((i) => (i - 1 + count) % count);
-  };
+  }, [count]);
 
-  const goNext = () => {
+  const goNext = useCallback(() => {
     if (count <= 1) return;
     setIndex((i) => (i + 1) % count);
-  };
+  }, [count]);
+
+  const swipeStartX = useRef<number | null>(null);
+
+  const onSwipeStart = useCallback((clientX: number) => {
+    swipeStartX.current = clientX;
+  }, []);
+
+  const onSwipeEnd = useCallback(
+    (clientX: number) => {
+      if (swipeStartX.current === null || count <= 1) return;
+      const deltaX = clientX - swipeStartX.current;
+      swipeStartX.current = null;
+      if (Math.abs(deltaX) < SWIPE_THRESHOLD_PX) return;
+      if (deltaX > 0) goPrev();
+      else goNext();
+    },
+    [count, goNext, goPrev]
+  );
 
   return (
     <>
@@ -83,8 +103,15 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
         hideTitle
         title="웨딩 갤러리"
       >
-        <div className="relative flex h-full min-h-[100dvh] w-full flex-col">
-          <div className="relative flex min-h-0 flex-1 items-center justify-center">
+        <div className="relative flex h-full w-full flex-col overflow-hidden">
+          <div
+            className="relative flex min-h-0 flex-1 touch-pan-y items-center justify-center"
+            onTouchStart={(e) => onSwipeStart(e.touches[0].clientX)}
+            onTouchEnd={(e) => onSwipeEnd(e.changedTouches[0].clientX)}
+            onTouchCancel={() => {
+              swipeStartX.current = null;
+            }}
+          >
             {count > 1 && (
               <>
                 <button
