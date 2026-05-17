@@ -8,6 +8,7 @@ import { InvitationContent } from "./content/InvitationContent";
 import { GallaryContent } from "./content/GallaryContent";
 import { LocationContent } from "./content/LocationContent";
 import { AccountContent } from "./content/AccountContent";
+import { CloseContent } from "./content/CloseContent";
 
 export default function ContentLayout({
   galleryImages,
@@ -15,7 +16,7 @@ export default function ContentLayout({
   galleryImages: string[];
 }) {
   return (
-    <div className="w-full flex flex-col items-center pb-10">
+    <div className="w-full flex flex-col items-center">
       {/* 초대합니다 */}
       <InvitationContent />
       {/* 갤러리 */}
@@ -26,6 +27,8 @@ export default function ContentLayout({
       <LocationContent />
       {/* 마음 전하실 곳 */}
       <AccountContent />
+      {/* 마무리 */}
+      <CloseContent />
     </div>
   );
 }

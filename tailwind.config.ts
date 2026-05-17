@@ -73,6 +73,7 @@ const length = {
   240: "60rem", //960px
 };
 export default {
+  safelist: ["text-main-color", "bg-main-color"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -88,7 +89,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         "cover-color": "#fbf4f6",
-        "main-color": "#ff4d6d",
+        "main-color": "var(--main-color)",
       },
       fontSize: {
         8: ["8px", "10px"],

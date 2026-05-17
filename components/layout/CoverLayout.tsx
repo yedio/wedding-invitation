@@ -28,7 +28,7 @@ export default function CoverLayout() {
           />
           <video
             id="main-particle"
-            className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.5] sm:opacity-[0.55]"
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-[0.2]"
             autoPlay
             loop
             muted

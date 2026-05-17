@@ -12,39 +12,42 @@ export function WeddingCoupleIntro() {
 
   return (
     <>
-      <div className="flex w-full flex-col items-center px-5 py-8">
+      <div className="flex w-full flex-col items-center py-8">
         <img
           src={imageUrl}
-          className="aspect-[5/3] w-full rounded-[8px] object-cover shadow-sm"
+          className="aspect-[5/3] w-full object-cover"
           loading="lazy"
+          alt=""
         />
-        <div className="flex flex-col mx-auto mt-8 w-max max-w-full grid-cols-[auto_auto_auto] items-baseline gap-x-2 gap-y-3 text-15 font-medium leading-[26px] text-black">
-          <ParentInfoItem
-            father={groomLine.parent1}
-            mother={groomLine.parent2}
-            child={groomLine.self}
-            gender="M"
-          />
-          <ParentInfoItem
-            father={brideLine.parent1}
-            mother={brideLine.parent2}
-            child={brideLine.self}
-            gender="F"
-          />
+        <div className="mt-8 flex w-full flex-col items-center px-5">
+          <div className="flex w-max max-w-full flex-col grid-cols-[auto_auto_auto] items-baseline gap-x-2 gap-y-3 text-15 font-medium leading-[26px] text-black">
+            <ParentInfoItem
+              father={groomLine.parent1}
+              mother={groomLine.parent2}
+              child={groomLine.self}
+              gender="M"
+            />
+            <ParentInfoItem
+              father={brideLine.parent1}
+              mother={brideLine.parent2}
+              child={brideLine.self}
+              gender="F"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() => setContactOpen(true)}
+            className="mt-6 flex w-full max-w-[230px] items-center justify-between rounded-[8px] bg-[#F3EEEE] px-3 py-3.5 text-14 font-medium text-[#524548] transition active:opacity-90"
+          >
+            <span>축하 연락하기</span>
+            <CommonImage
+              src="/img/icons/arrow_down.svg"
+              width={15}
+              alt=""
+              providedStyle="-rotate-90"
+            />
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={() => setContactOpen(true)}
-          className="mt-6 flex w-full max-w-[300px] items-center justify-between rounded-[8px] bg-[#F3EEEE] px-3 py-3.5 text-14 font-medium text-[#524548] transition active:opacity-90"
-        >
-          <span>축하 연락하기</span>
-          <CommonImage
-            src="/img/icons/arrow_down.svg"
-            width={15}
-            alt=""
-            providedStyle="-rotate-90"
-          />
-        </button>
       </div>
 
       <AppModal

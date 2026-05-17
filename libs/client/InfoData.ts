@@ -24,7 +24,7 @@ export const info = {
     },
   },
   weddingIntro: {
-    imageUrl: "/img/pictures/invitation_1.jpg",
+    imageUrl: "/img/pictures/cover_3.jpg",
     groomLine: {
       parent1: "이인출",
       parent2: "김득진",
