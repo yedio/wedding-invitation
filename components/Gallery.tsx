@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cls } from "@libs/client/Utility";
 import { CommonImage } from "./image/CommonImage";
 import { AppModal } from "@components/modal/AppModal";
@@ -21,7 +21,13 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [showAllPreview, setShowAllPreview] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
   const count = images.length;
+
+  useEffect(() => {
+    if (!open) return;
+    setIsPortrait(false);
+  }, [index, open]);
   const hasMorePreview = count > PREVIEW_LIMIT;
   const previewImages = showAllPreview
     ? images
@@ -105,7 +111,12 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
       >
         <div className="relative flex h-full w-full flex-col overflow-hidden">
           <div
-            className="relative flex min-h-0 flex-1 touch-pan-y items-center justify-center"
+            className={cls(
+              "relative flex min-h-0 w-full flex-1 touch-pan-y",
+              isPortrait
+                ? "overflow-hidden"
+                : "items-center justify-center"
+            )}
             onTouchStart={(e) => onSwipeStart(e.touches[0].clientX)}
             onTouchEnd={(e) => onSwipeEnd(e.changedTouches[0].clientX)}
             onTouchCancel={() => {
@@ -134,8 +145,18 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
             )}
 
             <CommonImage
+              key={images[index]}
               src={images[index]}
-              providedStyle="!block !h-auto !w-full !max-h-[calc(100dvh-5rem)] !object-contain object-center"
+              onLoad={(e) => {
+                const { naturalWidth, naturalHeight } = e.currentTarget;
+                setIsPortrait(naturalHeight > naturalWidth);
+              }}
+              providedStyle={cls(
+                "!block object-center",
+                isPortrait
+                  ? "!h-full !w-full !max-h-none !object-cover"
+                  : "!h-auto !w-full !max-h-[calc(100dvh-5rem)] !object-contain"
+              )}
             />
           </div>
 

@@ -9,6 +9,7 @@ interface CommonImageProps {
   width?: number;
   height?: number;
   onImageClicked?: (e: React.MouseEvent<HTMLImageElement>) => void;
+  onLoad?: (e: React.SyntheticEvent<HTMLImageElement>) => void;
 }
 // eslint-disable-next-line react/display-name
 export const CommonImage = React.memo(
@@ -20,6 +21,7 @@ export const CommonImage = React.memo(
     width,
     height,
     onImageClicked,
+    onLoad,
   }: CommonImageProps) => {
     if (!src) return <></>;
 
@@ -41,6 +43,7 @@ export const CommonImage = React.memo(
         alt={alt ?? "image"}
         decoding="async"
         onClick={onImageClicked}
+        onLoad={onLoad}
       />
     );
   }
