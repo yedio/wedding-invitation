@@ -1,5 +1,5 @@
 "use client";
-import { CopyToClipBoard } from "@libs/client/Utility";
+import { copyToClipboard } from "@libs/client/clipboard";
 
 export default function FooterLayout() {
   return (
@@ -8,7 +8,9 @@ export default function FooterLayout() {
         {/* <div className="font-sans">카카오톡 공유하기</div> */}
         <div
           className="cursor-pointer text-15"
-          onClick={() => CopyToClipBoard(window.location.href)}
+          onClick={() =>
+            copyToClipboard(window.location.href, "링크가 복사되었습니다.")
+          }
         >
           링크주소 복사하기
         </div>

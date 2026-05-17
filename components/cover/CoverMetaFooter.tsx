@@ -18,18 +18,20 @@ function formatCoverDateLineKo(at: string): string {
 }
 
 export function CoverMetaFooter() {
-  const namesLine = `${info.date.groom} | ${info.date.bride}`;
   const dateLine = formatCoverDateLineKo(info.date.at);
   const venueLine = [info.location.place, info.location.hall]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <div className="w-full px-5 py-4 text-center">
-      <div className="mx-auto max-w-[20rem] space-y-1">
-        <p className="text-[20px] leading-snug tracking-tight">{namesLine}</p>
-        <p className="text-[16px] leading-[1.5]">{dateLine}</p>
-        <p className="text-[16px] leading-[1.5]">{venueLine}</p>
+    <div className="w-full px-1 text-center text-white">
+      <div className="mx-auto max-w-[22rem] space-y-1.5">
+        <p className="text-[15px] leading-[1.55] tracking-[-0.01em]">
+          {dateLine}
+        </p>
+        <p className="text-[15px] leading-[1.55] tracking-[-0.01em]">
+          {venueLine}
+        </p>
       </div>
     </div>
   );

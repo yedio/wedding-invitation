@@ -1,5 +1,6 @@
 "use client";
 
+import { CommonImage } from "@components/image/CommonImage";
 import { AppModal } from "@components/modal/AppModal";
 import { ContactModalBody } from "@components/modal/ContactModalBody";
 import { info } from "@libs/client/InfoData";
@@ -34,12 +35,15 @@ export function WeddingCoupleIntro() {
         <button
           type="button"
           onClick={() => setContactOpen(true)}
-          className="mt-6 flex w-full max-w-[200px] items-center justify-center gap-2 rounded-[100px] border border-main-color/35 bg-white py-2 text-15 font-medium text-main-color transition active:bg-[#fff8f9]"
+          className="mt-6 flex w-full max-w-[300px] items-center justify-between rounded-[8px] bg-[#F3EEEE] px-3 py-3.5 text-14 font-medium text-[#524548] transition active:opacity-90"
         >
-          <span className="text-11" aria-hidden>
-            📞
-          </span>
-          연락하기
+          <span>축하 연락하기</span>
+          <CommonImage
+            src="/img/icons/arrow_down.svg"
+            width={15}
+            alt=""
+            providedStyle="-rotate-90"
+          />
         </button>
       </div>
 

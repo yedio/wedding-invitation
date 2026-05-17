@@ -1,5 +1,5 @@
 import { CommonImage } from "@components/image/CommonImage";
-import { CopyToClipBoard } from "@libs/client/Utility";
+import { copyToClipboard } from "@libs/client/clipboard";
 
 interface CopyButtonProps {
   copyText: string;
@@ -15,9 +15,9 @@ export const CopyButton = ({
   return (
     <button
       type="button"
-      className="shrink-0 rounded-md p-2 transition-opacity hover:opacity-70 active:opacity-90"
+      className="shrink-0 rounded-md p-1 transition-opacity hover:opacity-70 active:opacity-90"
       aria-label="계좌번호 복사"
-      onClick={() => CopyToClipBoard(copyText, successMessage)}
+      onClick={() => copyToClipboard(copyText, successMessage)}
     >
       <CommonImage
         src="/img/icons/copy.svg"

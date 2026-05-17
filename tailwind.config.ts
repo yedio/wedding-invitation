@@ -81,8 +81,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-gowun-dodum)", "sans-serif"],
-        serif: ["var(--font-gowun-dodum)", "sans-serif"],
+        sans: ["var(--font-suit)", "SUIT", "sans-serif"],
+        serif: ["var(--font-suit)", "SUIT", "sans-serif"],
       },
       colors: {
         background: "var(--background)",

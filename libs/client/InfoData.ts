@@ -2,7 +2,8 @@ export const info = {
   coverHero: {
     particleVideoUrl: "/img/particle/particle_flower_00.mp4",
     /** 히어로 전체 배경(커플 사진 등) — object-cover */
-    backgroundImageUrl: "/img/pictures/cover_1.jpg",
+    backgroundImageUrl: "/img/pictures/cover_2.jpg",
+    coupleNamesEn: "JINHYUNG & YEJU",
   },
   date: {
     /** 예식 일시 `YYYY.MM.DD` 또는 `YYYY.MM.DD HH:mm[:ss]` */
@@ -39,21 +40,20 @@ export const info = {
     groomSide: {
       title: "신랑측",
       rows: [
-        { role: "신랑", name: "이진형", phone: "010-0000-0001" },
-        { role: "아버지", name: "이인출", phone: "010-0000-0002" },
-        { role: "어머니", name: "김득진", phone: "010-0000-0003" },
+        { role: "신랑", name: "이진형", phone: "010-4792-7535" },
+        { role: "아버지", name: "이인출", phone: "010-5230-9765" },
+        { role: "어머니", name: "김득진", phone: "010-9120-0067" },
       ],
     },
     brideSide: {
       title: "신부측",
       rows: [
         { role: "신부", name: "석예주", phone: "010-2717-5360" },
-        { role: "아버지", name: "석해준", phone: "010-9500-0005" },
-        { role: "어머니", name: "박서윤", phone: "010-0000-0006" },
+        { role: "아버지", name: "석해준", phone: "010-5826-9500" },
+        { role: "어머니", name: "박서윤", phone: "010-9009-6528" },
       ],
     },
   },
-  baby: { name: "석연지", shortName: "연지" },
   /** 마음 전하실 곳 — 신랑측·신부측 → 내부에 역할별 계좌 */
   giftAccountSides: [
     {
@@ -61,20 +61,20 @@ export const info = {
       rows: [
         {
           role: "신랑",
-          bankName: "국민은행",
-          accountNumber: "123456-78-000001",
+          bankName: "신한은행",
+          accountNumber: "110-334-797821",
           holderName: "이진형",
         },
         {
           role: "아버지",
-          bankName: "국민은행",
-          accountNumber: "123456-78-000002",
+          bankName: "우리은행",
+          accountNumber: "1002-935-838099",
           holderName: "이인출",
         },
         {
           role: "어머니",
           bankName: "신한은행",
-          accountNumber: "123456-78-000003",
+          accountNumber: "110-2465-73-035",
           holderName: "김득진",
         },
       ],
@@ -84,20 +84,20 @@ export const info = {
       rows: [
         {
           role: "신부",
-          bankName: "우리은행",
-          accountNumber: "123456-78-000004",
+          bankName: "국민은행",
+          accountNumber: "343602-04-202750",
           holderName: "석예주",
         },
         {
           role: "아버지",
-          bankName: "국민은행",
-          accountNumber: "123456-78-000005",
+          bankName: "하나은행",
+          accountNumber: "272-810595-92107",
           holderName: "석해준",
         },
         {
           role: "어머니",
-          bankName: "우리은행",
-          accountNumber: "123456-78-000006",
+          bankName: "하나은행",
+          accountNumber: "272-810541-56807",
           holderName: "박서윤",
         },
       ],

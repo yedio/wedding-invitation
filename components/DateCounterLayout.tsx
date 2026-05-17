@@ -31,7 +31,7 @@ export const DateCounterLayout = ({
   const [banner, setBanner] = useState<ReactNode>(null);
 
   const targetDate = useMemo(() => parseInvitationDate(date), [date]);
-  const coupleLabel = `${groomGiven}, ${brideGiven}`;
+  const coupleLabel = `${groomGiven}♥${brideGiven}`;
 
   useEffect(() => {
     const updateCountdown = () => {

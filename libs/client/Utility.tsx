@@ -32,6 +32,16 @@ export function koreanGivenOnly(fullName: string): string {
   return t.slice(1);
 }
 
+export function invitationTimeLabelKo(date: Date): string {
+  const h = date.getHours();
+  const min = date.getMinutes();
+  const period = h < 12 ? "오전" : "오후";
+  const hour12 = h % 12 === 0 ? 12 : h % 12;
+  return min === 0
+    ? `${period} ${hour12}시`
+    : `${period} ${hour12}시 ${min}분`;
+}
+
 export function invitationWeekdayTimeLabelKo(date: Date): string {
   if (Number.isNaN(date.getTime())) {
     return "";
@@ -39,15 +49,21 @@ export function invitationWeekdayTimeLabelKo(date: Date): string {
   const weekday = new Intl.DateTimeFormat("ko-KR", { weekday: "long" }).format(
     date
   );
-  const h = date.getHours();
-  const min = date.getMinutes();
-  const period = h < 12 ? "오전" : "오후";
-  const hour12 = h % 12 === 0 ? 12 : h % 12;
-  const time =
-    min === 0
-      ? `${period} ${hour12}시`
-      : `${period} ${hour12}시 ${min}분`;
-  return `${weekday} ${time}`;
+  return `${weekday} ${invitationTimeLabelKo(date)}`;
+}
+
+/** 예: 2026년 7월 4일 토요일 | 오후 12시 */
+export function invitationWeddingDateLabelKo(date: Date): string {
+  if (Number.isNaN(date.getTime())) {
+    return "";
+  }
+  const y = date.getFullYear();
+  const m = date.getMonth() + 1;
+  const d = date.getDate();
+  const weekday = new Intl.DateTimeFormat("ko-KR", { weekday: "long" }).format(
+    date
+  );
+  return `${y}년 ${m}월 ${d}일 ${weekday} | ${invitationTimeLabelKo(date)}`;
 }
 
 export function cls(...classnames: (string | undefined)[]) {
@@ -128,17 +144,9 @@ export function BraceHighlight({
   return <Fragment>{nodes}</Fragment>;
 }
 
-//복사
-export async function CopyToClipBoard(text: string, successMessage?: string) {
-  try {
-    await navigator.clipboard.writeText(text);
-    console.log("Text copied to clipboard");
-    alert(successMessage || "클립보드에 복사되었습니다.");
-    return true;
-  } catch (error) {
-    console.error("Failed to copy text to clipboard:", error);
-    return false;
-  }
+/** 계좌번호 표시용 문자열에서 복사용 숫자만 추출 */
+export function accountNumberForCopy(accountNumber: string): string {
+  return accountNumber.replace(/[\s-]/g, "");
 }
 
 export const handleCall = (phoneNumber: string) => {

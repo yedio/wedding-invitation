@@ -2,7 +2,7 @@
 import { CommonImage } from "./image/CommonImage";
 import { useState } from "react";
 import { CopyButton } from "./buttons/CopyButton";
-import { cls } from "@libs/client/Utility";
+import { accountNumberForCopy, cls } from "@libs/client/Utility";
 
 export interface GiftAccountRow {
   role: string;
@@ -49,16 +49,16 @@ export const AccordionAccountSideLayout = ({
             const block = (
               <div
                 key={`${row.role}-${row.accountNumber}`}
-                className="flex flex-col gap-2"
+                className="flex flex-col gap-1"
               >
                 <div className="text-left">{row.role}</div>
-                <div className="flex w-full items-start justify-between gap-2 text-left">
+                <div className="flex w-full items-center justify-between gap-2 text-left">
                   <div className="min-w-0 flex-1 break-all">
                     {row.bankName} | {row.accountNumber}
                   </div>
                   <div className="shrink-0 self-start">
                     <CopyButton
-                      copyText={row.accountNumber}
+                      copyText={accountNumberForCopy(row.accountNumber)}
                       imgSize={18}
                       successMessage="계좌번호를 복사하였습니다."
                     />

@@ -4,7 +4,7 @@ import { LineBreaker } from "@libs/client/Utility";
 import { FormWithTitle, Wrapper } from "../common/Layout";
 
 const ACCOUNT_NOTICE =
-  "참석이 어려우신 분들을 위해\n계좌번호를 기재하였습니다.\n너그러운 마음으로 양해 부탁드립니다.";
+  "참석이 어려우신 분들을 위해 기재했습니다\n너그러운 마음으로 양해 부탁드립니다";
 
 export const AccountContent = () => {
   const { giftAccountSides } = info;

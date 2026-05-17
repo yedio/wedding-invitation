@@ -1,44 +1,22 @@
 "use client";
 
-import { CoverHeroTypography } from "@components/cover/CoverHeroTypography";
+import { CoverHeroNames } from "@components/cover/CoverHeroNames";
+import { CoverMetaFooter } from "@components/cover/CoverMetaFooter";
 import { info } from "@libs/client/InfoData";
 import { Cormorant_Infant } from "next/font/google";
-import { useEffect, useState } from "react";
 
-const coverDate = Cormorant_Infant({
-  weight: ["400", "600"],
+const coverSerif = Cormorant_Infant({
+  weight: ["300", "400"],
   subsets: ["latin"],
-  variable: "--font-cover-date",
+  variable: "--font-cover-serif",
 });
 
-function parseHeroDate(dateStr: string) {
-  const part = dateStr.trim().split(/\s+/)[0];
-  const [y, m, d] = part.split(".");
-  return {
-    day: String(Number(d)),
-    month: String(Number(m)).padStart(2, "0"),
-    yearShort: y.slice(-2),
-  };
-}
-
 export default function CoverLayout() {
-  const { day, month, yearShort } = parseHeroDate(info.date.at);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY || 0);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const parallaxY = -Math.min(scrollY, 520) * 0.42;
-
   return (
     <section
-      className={`relative w-full overflow-hidden ${coverDate.variable}`}
+      className={`relative w-full overflow-hidden ${coverSerif.variable}`}
     >
-      <div className="relative w-full aspect-[393/590]">
+      <div className="relative flex h-[100svh] max-h-[840px] w-full flex-col overflow-hidden">
         <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -59,13 +37,9 @@ export default function CoverLayout() {
           />
         </div>
 
-        <div className="absolute inset-0 z-[1] min-h-0">
-          <CoverHeroTypography
-            day={day}
-            month={month}
-            yearShort={yearShort}
-            parallaxY={parallaxY}
-          />
+        <div className="relative z-[1] flex min-h-0 flex-1 flex-col justify-between px-5 pb-9 pt-11 sm:pb-10 sm:pt-12">
+          <CoverHeroNames names={info.coverHero.coupleNamesEn} />
+          <CoverMetaFooter />
         </div>
       </div>
     </section>
