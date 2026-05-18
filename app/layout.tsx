@@ -5,12 +5,12 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "진형 🤍 예주 결혼합니다",
-  description: "진형 🤍 예주 결혼식에 초대합니다.",
+  description: "9월 12일 토요일 오전 11시 10분",
   openGraph: {
     title: "진형 🤍 예주 결혼합니다",
     type: "website",
     siteName: "진형 🤍 예주 결혼합니다",
-    description: "진형 🤍 예주 결혼식에 초대합니다.",
+    description: "9월 12일 토요일 오전 11시 10분",
   },
 };
 
@@ -28,10 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body
-        className={`${suit.variable} antialiased`}
-        suppressHydrationWarning
-      >
+      <body className={`${suit.variable} antialiased`} suppressHydrationWarning>
         {children}
         <Toaster position="bottom-center" duration={2000} />
       </body>
