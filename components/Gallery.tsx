@@ -21,13 +21,40 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [showAllPreview, setShowAllPreview] = useState(false);
-  const [isPortrait, setIsPortrait] = useState(false);
+  const [fitMode, setFitMode] = useState<"contain" | "cover">("contain");
   const count = images.length;
+  const viewerRef = useRef<HTMLDivElement>(null);
+  const naturalSizeRef = useRef({ width: 0, height: 0 });
+
+  const updateFitMode = useCallback(() => {
+    const { width, height } = naturalSizeRef.current;
+    const viewer = viewerRef.current;
+    if (!viewer || !width || !height) return;
+
+    const { clientWidth, clientHeight } = viewer;
+    if (!clientWidth || !clientHeight) return;
+
+    const imageAspect = width / height;
+    const viewerAspect = clientWidth / clientHeight;
+    // contain 시 좌우 여백이 생기는 경우(이미지가 뷰어보다 상대적으로 더 길 때)만 cover
+    setFitMode(imageAspect < viewerAspect ? "cover" : "contain");
+  }, []);
 
   useEffect(() => {
     if (!open) return;
-    setIsPortrait(false);
+    setFitMode("contain");
+    naturalSizeRef.current = { width: 0, height: 0 };
   }, [index, open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const viewer = viewerRef.current;
+    if (!viewer) return;
+
+    const observer = new ResizeObserver(() => updateFitMode());
+    observer.observe(viewer);
+    return () => observer.disconnect();
+  }, [open, updateFitMode]);
   const hasMorePreview = count > PREVIEW_LIMIT;
   const previewImages = showAllPreview
     ? images
@@ -80,6 +107,7 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
             >
               <CommonImage
                 src={image}
+                loading="eager"
                 providedStyle="pointer-events-none h-full w-full !object-cover object-center"
               />
             </button>
@@ -111,12 +139,8 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
       >
         <div className="relative flex h-full w-full flex-col overflow-hidden">
           <div
-            className={cls(
-              "relative flex min-h-0 w-full flex-1 touch-pan-y",
-              isPortrait
-                ? "overflow-hidden"
-                : "items-center justify-center"
-            )}
+            ref={viewerRef}
+            className="relative flex min-h-0 w-full flex-1 touch-pan-y items-center justify-center overflow-hidden"
             onTouchStart={(e) => onSwipeStart(e.touches[0].clientX)}
             onTouchEnd={(e) => onSwipeEnd(e.changedTouches[0].clientX)}
             onTouchCancel={() => {
@@ -149,13 +173,17 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
               src={images[index]}
               onLoad={(e) => {
                 const { naturalWidth, naturalHeight } = e.currentTarget;
-                setIsPortrait(naturalHeight > naturalWidth);
+                naturalSizeRef.current = {
+                  width: naturalWidth,
+                  height: naturalHeight,
+                };
+                updateFitMode();
               }}
               providedStyle={cls(
                 "!block object-center",
-                isPortrait
-                  ? "!h-full !w-full !max-h-none !object-cover"
-                  : "!h-auto !w-full !max-h-[calc(100dvh-5rem)] !object-contain"
+                fitMode === "cover"
+                  ? "!h-full !w-full !max-h-none !max-w-none !object-cover"
+                  : "!h-auto !w-full !max-h-full !object-contain"
               )}
             />
           </div>

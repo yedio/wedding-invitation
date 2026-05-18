@@ -91,7 +91,7 @@ export const info = {
         {
           role: "아버지",
           bankName: "하나은행",
-          accountNumber: "272-810595-92107",
+          accountNumber: "272-810565-92107",
           holderName: "석해준",
         },
         {

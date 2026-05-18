@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@components/effects/ScrollReveal";
 import { InvitationOrnament } from "@components/invitation/InvitationOrnament";
 import { WeddingCoupleIntro } from "@components/invitation/WeddingCoupleIntro";
 import { info } from "@libs/client/InfoData";
@@ -8,13 +9,17 @@ export const InvitationContent = () => {
   const { text } = info;
 
   return (
-    <Wrapper>
+    <Wrapper reveal={false}>
       <div className="flex w-full flex-col items-center space-y-6">
-        <InvitationOrnament />
-        <div className="text-15 text-center leading-[24px]">
-          {LineBreaker(text.invitation)}
-        </div>
-        <WeddingCoupleIntro />
+        <ScrollReveal className="flex w-full flex-col items-center space-y-6">
+          <InvitationOrnament />
+          <div className="text-15 text-center leading-[24px]">
+            {LineBreaker(text.invitation)}
+          </div>
+        </ScrollReveal>
+        <ScrollReveal className="w-full" delay fade={false}>
+          <WeddingCoupleIntro />
+        </ScrollReveal>
       </div>
     </Wrapper>
   );

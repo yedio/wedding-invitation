@@ -15,9 +15,9 @@ export const GallaryContent = ({ images }: { images: string[] }) => {
             웨딩 갤러리
           </div>
         </ScrollReveal>
-        <div className="px-4 w-full">
+        <ScrollReveal className="px-4 w-full" delay fade={false}>
           <Gallery images={images} />
-        </div>
+        </ScrollReveal>
       </div>
     </Wrapper>
   );

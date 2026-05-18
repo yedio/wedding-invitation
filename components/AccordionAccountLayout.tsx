@@ -38,7 +38,7 @@ export const AccordionAccountSideLayout = ({
           src={"/img/icons/arrow_down.svg"}
           width={15}
           providedStyle={cls(
-            "absolute top-4 right-4 transition-transform duration-300",
+            "absolute top-4 right-4 transition-transform duration-500",
             isOpen ? "rotate-180" : "rotate-0"
           )}
         />
