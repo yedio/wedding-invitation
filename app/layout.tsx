@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import { Toaster } from "sonner";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Metadata } from "next";
 
@@ -32,6 +33,9 @@ export default function RootLayout({
         {children}
         <Toaster position="bottom-center" duration={2000} />
       </body>
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
     </html>
   );
 }
