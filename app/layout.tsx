@@ -5,6 +5,7 @@ import "./globals.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jhyj-wedding.site"),
   title: "진형 🤍 예주 결혼합니다",
   description: "9월 12일 토요일 오전 11시 10분",
   openGraph: {
@@ -12,6 +13,19 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "진형 🤍 예주 결혼합니다",
     description: "9월 12일 토요일 오전 11시 10분",
+    images: [
+      {
+        url: "/img/pictures/cover_2.jpg",
+        width: 3072,
+        height: 4608,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "진형 🤍 예주 결혼합니다",
+    description: "9월 12일 토요일 오전 11시 10분",
+    images: ["/img/pictures/cover_2.jpg"],
   },
 };
 
